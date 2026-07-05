@@ -6,9 +6,8 @@ Sistema integral para la gestión, trazabilidad y custodia de activos de alto va
 - **Backend:** Laravel 12 (PHP 8.3)
 - **Frontend:** React + TypeScript
 - **Estilos:** Tailwind CSS
-- **Entorno:** Docker & Laravel Herd
-- **Base de Datos:** MySQL
-
+- **Entorno:** Docker + Nginx + Composer
+- **Base de Datos:** PostgreSQL
 ## 📋 Características (En desarrollo)
 - Registro de activos con códigos QR.
 - Flujo de Check-in/Check-out para técnicos.
@@ -20,3 +19,5 @@ Sistema integral para la gestión, trazabilidad y custodia de activos de alto va
 
 ---
 Desarrollado por [Tu Nombre] - Estudiante de Ingeniería de Software.
+
+<!-- anadir laravel\sanctum\hasapitokens a la migracion de usuarios para autenticacion de API. -->
