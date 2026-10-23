@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Concerns\BelongsToCompany;
+use App\Enums\AssetStatus;
 
 class Asset extends Model
 {
-    use HasUuids, HasFactory, SoftDeletes;
+    use HasUuids, HasFactory, SoftDeletes, BelongsToCompany;
 
     protected $fillable = [
         'company_id',
@@ -32,6 +34,7 @@ class Asset extends Model
     protected function casts(): array
     {
         return[
+            'status' => AssetStatus::class,
             'specifications' => 'array',
             'purchase_date' => 'date',
             'warranty_expiration' => 'date',
