@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum CompanyStatus: String
+enum CompanyStatus: string
 {
     case Activo = 'activo';
     case Inactivo = 'inactivo';

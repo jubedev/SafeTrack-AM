@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum AssignmentStatus: String
+enum AssignmentStatus: string
 {
     case Activo = 'activo';
     case Devuelto = 'devuelto';

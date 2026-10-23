@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum AssetStatus: String
+enum AssetStatus: string
 {
     case Disponible = 'disponible';
     case Asignado = 'asignado';
@@ -10,5 +10,4 @@ enum AssetStatus: String
     case DeBaja = 'de_baja';
     case Perdido = 'perdido';
     case Robado = 'robado';
-    case Otro = 'otro';
 }

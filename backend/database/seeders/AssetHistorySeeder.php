@@ -107,7 +107,7 @@ class AssetHistorySeeder extends Seeder
             [
                 'asset_tag' => 'AST-10005',
                 'user' => $technician,
-                'action' => HistoryAction::AsignadoMotivo,
+                'action' => HistoryAction::Devuelto,
                 'details' => json_encode([
                     'to_status' => 'disponible',
                     'notes' => 'Devuelto a bodega en buen estado',
