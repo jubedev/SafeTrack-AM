@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('operation_name');
             $table->string('station_number');
             $table->string('building_floor');
-            $table->string('status');
+            $table->string('status')->default('activo');
 
             $table->timestamps();
             $table->softDeletes();

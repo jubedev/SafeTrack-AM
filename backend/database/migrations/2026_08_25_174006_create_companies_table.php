@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('logo_path')->nullable(); // Guardar la ruta textual del logo en storage
 
             // Estado por defecto
-            $table->string('status')->default('active'); // active, inactive
+            $table->string('status')->default('activo'); // activo, inactivo
 
             $table->timestamps();
             $table->softDeletes();

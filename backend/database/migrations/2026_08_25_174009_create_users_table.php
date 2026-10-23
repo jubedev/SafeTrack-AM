@@ -24,8 +24,8 @@ return new class extends Migration
 
             // Autenticación y Control de Acceso
             $table->string('password')->nullable(); // Nulo si es empleado sin acceso a la app
-            $table->string('role')->default('Empleado'); // SuperAdmin, Admin, Tecnico, Empleado
-            $table->string('status')->default('active'); // active, inactive
+            $table->string('role')->default('empleado'); // super_admin, admin, tecnico, empleado
+            $table->string('status')->default('activo'); // activo, inactivo
 
             // Contexto Organizacional
             $table->string('area')->nullable(); // Ej. IT, Operaciones, Formación

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -15,13 +16,17 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('company_id')->constrained('companies')->cascadeOnDelete();
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
-
-            $table->index(['company_id', 'name']);
         });
+
+        DB::statement('
+            CREATE UNIQUE INDEX categories_company_id_name_active_unique
+            ON categories (company_id, name)
+            WHERE deleted_at IS NULL
+        ');
     }
 
     /**
@@ -30,5 +35,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('categories');
+        DB::statement('DROP INDEX IF EXISTS categories_company_id_name_active_unique');
     }
 };

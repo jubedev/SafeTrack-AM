@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('company_id')->constrained('companies')->cascadeOnDelete();
             $table->foreignUuid('asset_id')->constrained('assets')->cascadeOnDelete();
-            $table->foreignUuid('user_id')->constrained('users')->nullOnDelete();
+            $table->foreignUuid('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->string('action');
             $table->text('details')->nullable(); //Detalles del cambio en formato texto o JSON
 
