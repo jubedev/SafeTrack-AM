@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Enums\AssignmentStatus;
+use App\Models\Concerns\BelongsToCompany;
 
 class AssetAssignment extends Model
 {
-    use HasUuids, HasFactory, SoftDeletes;
+    use HasUuids, HasFactory, SoftDeletes, BelongsToCompany;
 
     protected $fillable = [
         'company_id',

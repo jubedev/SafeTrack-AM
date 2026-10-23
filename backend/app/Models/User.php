@@ -12,10 +12,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Enums\UserRole;
 use App\Enums\UserStatus;
+use App\Models\Concerns\BelongsToCompany;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasUuids, HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, HasUuids, HasFactory, Notifiable, SoftDeletes, BelongsToCompany;
 
     protected $fillable = [
         'company_id',

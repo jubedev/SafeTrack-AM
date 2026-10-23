@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Enums\WorkstationStatus;
+use App\Models\Concerns\BelongsToCompany;
 
 class Workstation extends Model
 {
-    use HasUuids, HasFactory, SoftDeletes;
+    use HasUuids, HasFactory, SoftDeletes, BelongsToCompany;
 
     protected $fillable = [
         'company_id',
