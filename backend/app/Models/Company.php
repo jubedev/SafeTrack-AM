@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Enums\CompanyStatus;
 
 class Company extends Model
 {
@@ -22,6 +23,13 @@ class Company extends Model
         'logo_path',
         'status',
     ];
+
+    protected function casts(): array
+    {
+        return[
+            'status' => CompanyStatus::class,
+        ];
+    }
 
     public function users(): HasMany
     {

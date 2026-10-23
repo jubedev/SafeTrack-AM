@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\HistoryAction;
 use App\Models\AssetHistory;
 use App\Models\Asset;
 use App\Models\Company;
@@ -30,13 +31,7 @@ class AssetHistoryFactory extends Factory
                 ->for(Company::findOrFail($attributes['company_id']))
                 ->create()
                 ->getKey(),
-            'action' => fake()->randomElement([
-                'created',
-                'assigned_employee',
-                'assigned_workstation',
-                'returned',
-                'status_updated',
-            ]),
+            'action' => fake()->randomElement(HistoryAction::cases()),
             'details' => fake()->optional()->sentence(),
         ];
     }

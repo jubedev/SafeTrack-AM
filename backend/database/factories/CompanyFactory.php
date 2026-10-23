@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\CompanyStatus;
 use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,7 +25,7 @@ class CompanyFactory extends Factory
             'phone' => fake()->phoneNumber(),
             'email' => fake()->companyEmail(),
             'website' => fake()->url(),
-            'status' => fake()->randomElement(['active', 'inactive', 'suspended']),
+            'status' => fake()->randomElement([CompanyStatus::Activo, CompanyStatus::Inactivo]),
         ];
     }
 
@@ -34,7 +35,7 @@ class CompanyFactory extends Factory
     public function active(): static
     {
         return $this->state(fn (array $attributes) => [
-            'status' => 'active',
+            'status' => CompanyStatus::Activo,
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\WorkstationStatus;
 use App\Models\Company;
 use App\Models\Workstation;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -30,7 +31,7 @@ class WorkstationFactory extends Factory
             ]),
             'station_number' => 'PUESTO-' . fake()->numerify('###'),
             'building_floor' => 'Piso ' . fake()->numberBetween(1, 5) . ' - Isla ' . fake()->randomLetter(),
-            'status' => 'activo',
+            'status' => WorkstationStatus::Activo,
         ];
     }
 
@@ -41,13 +42,10 @@ class WorkstationFactory extends Factory
         ]);
     }
 
-    /**
-     * Estado para puestos en mantenimiento
-     */
-    public function inMaintenance(): static
+    public function inactive(): static
     {
-        return $this->state(fn (array $attributes) => [
-            'status' => 'mantenimiento',
+        return $this->state(fn () => [
+            'status' => WorkstationStatus::Inactivo,
         ]);
     }
 }

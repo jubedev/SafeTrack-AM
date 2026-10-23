@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\UserRole;
+use App\Enums\UserStatus;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,8 +26,8 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->phoneNumber(),
             'password' => static::$password ??= Hash::make('password'),
-            'role' => 'Empleado',
-            'status' => 'active',
+            'role' => UserRole::Empleado,
+            'status' => UserStatus::Activo,
             'area' => fake()->optional()->randomElement([
                 'Operaciones',
                 'IT Support',
@@ -52,7 +54,7 @@ class UserFactory extends Factory
     public function admin(): static
     {
         return $this->state(fn (array $attributes) => [
-            'role' => 'Admin',
+            'role' => UserRole::Admin,
             'area' => 'IT Support',
             'position' => 'Coordinador de Infraestructura',
         ]);
@@ -64,7 +66,7 @@ class UserFactory extends Factory
     public function technician(): static
     {
         return $this->state(fn (array $attributes) => [
-            'role' => 'Tecnico',
+            'role' => UserRole::Tecnico,
             'area' => 'IT Support',
             'position' => 'Analista de Soporte TI',
         ]);
